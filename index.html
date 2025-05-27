@@ -3,256 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kotaro Kase - CV</title>
+    <title>Kotaro Kase - Mobile Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
         body {
             font-family: 'Inter', sans-serif;
-            color: #374151; /* Equivalent to Tailwind's text-gray-700 */
+            background-color: #f1f5f9;
+            color: var(--dark);
+        }
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
         .section-title {
-            border-bottom: 2px solid #60A5FA; /* Equivalent to Tailwind's border-blue-400 */
-            padding-bottom: 0.5rem; /* pb-2 */
-            margin-bottom: 1.5rem; /* mb-6 */
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 600; /* font-semibold */
-            color: #1F2937; /* text-gray-800 */
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
         }
-        .job-title {
-            font-weight: 600; /* font-semibold */
-            color: #111827; /* text-gray-900 */
-        }
-        .company-name {
-            color: #4B5563; /* text-gray-600 */
-        }
-        .date-location {
-            color: #6B7280; /* text-gray-500 */
-            font-size: 0.875rem; /* text-sm */
-        }
-        .list-disc {
-            list-style-position: outside;
-            margin-left: 1.25rem; /* ml-5 */
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 3rem;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
         }
         .skill-tag {
-            background-color: #DBEAFE; /* bg-blue-100 */
-            color: #1E40AF; /* text-blue-800 */
-            padding: 0.25rem 0.75rem; /* px-3 py-1 */
-            border-radius: 0.375rem; /* rounded-md */
-            font-size: 0.875rem; /* text-sm */
-            font-weight: 500; /* font-medium */
-            margin-right: 0.5rem; /* mr-2 */
-            margin-bottom: 0.5rem; /* mb-2 */
-            display: inline-block;
+            background-color: #e0e7ff;
+            color: var(--primary);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.35rem 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
         }
-        .link-style {
-            color: #2563EB; /* text-blue-600 */
-            text-decoration: none;
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
         }
-        .link-style:hover {
-            text-decoration: underline;
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0.35rem;
+            top: 0.25rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: var(--primary);
+            z-index: 1;
         }
-        /* Icon styles */
-        .icon {
-            width: 1.25rem; /* w-5 */
-            height: 1.25rem; /* h-5 */
-            margin-right: 0.5rem; /* mr-2 */
-            vertical-align: middle;
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 0.7rem;
+            top: 1rem;
+            bottom: -2rem;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        .project-card {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .badge-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .badge-success {
+            background: #10b981;
+            color: white;
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4 sm:p-8">
-    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden">
-        <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 md:p-12">
-            <div class="flex flex-col md:flex-row items-center">
-                <img
-                    src="myPic.png"
-                    alt="Kotaro Kase"
-                    class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg mb-6 md:mb-0 md:mr-8 object-cover"
-                    onerror="this.onerror=null; this.src='https://placehold.co/120x120/E0E0E0/4A4A4A?text=Image+Not+Found&font=Inter';"
-                >
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-bold">Kotaro Kase</h1>
-                    <p class="text-xl md:text-2xl text-blue-100 mt-1">IT Student | Mobile & Web Developer</p>
-                    <div class="mt-4 space-y-2 md:space-y-0 md:space-x-6 flex flex-col md:flex-row text-blue-50">
-                        <span class="flex items-center">
-                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            kotarokase@gmail.com
-                        </span>
-                        <span class="flex items-center">
-                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            Kuala Lumpur, 56000
-                        </span>
+<body class="antialiased">
+    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Main Card -->
+            <div class="card">
+                <!-- Header -->
+                <header class="header-gradient text-white px-8 py-10 md:px-12 md:py-12">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="relative mb-8 md:mb-0 md:mr-10">
+                            <img
+                                src="myPic.png"
+                                alt="Kotaro Kase"
+                                class="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white/30 object-cover shadow-xl"
+                                onerror="this.onerror=null; this.src='https://placehold.co/144x144/6366f1/ffffff?text=KK&font=Inter';"
+                            >
+                            <div class="absolute -bottom-2 -right-2 bg-white rounded-full p-2 shadow-md">
+                                <div class="bg-indigo-500 rounded-full p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Kotaro Kase</h1>
+                            <p class="text-xl md:text-2xl text-indigo-100 mt-2 mb-4">Mobile Developer | Flutter Expert</p>
+                            <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-3 text-indigo-100/90">
+                                <span class="flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    kotarokase@gmail.com
+                                </span>
+                                <span class="flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    Kuala Lumpur, Malaysia
+                                </span>
+                                <span class="flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    Open to Full-time Opportunities
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </header>
+
+                <!-- Main Content -->
+                <main class="grid grid-cols-1 lg:grid-cols-3 gap-8 p-8 md:p-12">
+                    <!-- Left Column -->
+                    <div class="lg:col-span-2 space-y-10">
+                        <!-- Profile -->
+                        <section>
+                            <h2 class="section-title">Professional Profile</h2>
+                            <div class="space-y-4 text-gray-700 leading-relaxed">
+                                <p>
+                                    Passionate Mobile Developer with proven experience in building and publishing Flutter applications. Successfully developed and monetized a finance management app with ads, showcasing full-stack mobile development capabilities from concept to deployment.
+                                </p>
+                                <p>
+                                    Strong expertise in cross-platform development with Flutter, Firebase integration, and state management solutions. Currently leading development of a university-approved student housing application with real-time features.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="badge badge-primary">Flutter Expert</span>
+                                    <span class="badge badge-primary">Firebase</span>
+                                    <span class="badge badge-primary">Mobile Monetization</span>
+                                    <span class="badge badge-primary">Full App Lifecycle</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Experience -->
+                        <section>
+                            <h2 class="section-title">Professional Experience</h2>
+                            <div class="space-y-6">
+                                <!-- Published App -->
+                                <div class="timeline-item">
+                                    <div class="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="font-bold text-lg text-gray-800">Mobile Developer (Freelance)</h3>
+                                                <p class="text-indigo-600 font-medium">Shiokurazu - Finance Management App</p>
+                                            </div>
+                                            <span class="text-sm text-gray-500">2023 - Present</span>
+                                        </div>
+                                        <ul class="mt-3 space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Successfully published on Google Play Store with monetization through ads</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Implemented secure financial tracking with intuitive UI/UX design</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Maintained 4.5+ star rating with regular updates and feature additions</span>
+                                            </li>
+                                        </ul>
+                                        <div class="mt-4 flex flex-wrap gap-2">
+                                            <a href="https://play.google.com/store/apps/details?id=com.kotarokase.moneyTracker&pcampaignid=web_share" target="_blank" class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium hover:bg-indigo-100 transition-colors">
+                                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                                Play Store
+                                            </a>
+                                            <a href="https://github.com/KOTAROKASEKO/shiokurazu_proj.git" target="_blank" class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-medium hover:bg-gray-200 transition-colors">
+                                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                                GitHub
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- APHome -->
+                                <div class="timeline-item">
+                                    <div class="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="font-bold text-lg text-gray-800">Lead Developer</h3>
+                                                <p class="text-indigo-600 font-medium">APHome - Student Housing App</p>
+                                            </div>
+                                            <span class="text-sm text-gray-500">2023 - Present</span>
+                                        </div>
+                                        <ul class="mt-3 space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Developing university-approved Flutter application for student housing</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Implemented real-time chat, notifications, and search functionality</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Integrated Firebase backend with Hive for local caching</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Internship -->
+                                <div class="timeline-item">
+                                    <div class="bg-white p-5 rounded-lg border border-gray-100 shadow-sm">
+                                        <div class="flex justify-between items-start">
+                                            <div>
+                                                <h3 class="font-bold text-lg text-gray-800">Mobile Development Intern</h3>
+                                                <p class="text-indigo-600 font-medium">Equinox Proptech Sdn Bhd</p>
+                                            </div>
+                                            <span class="text-sm text-gray-500">2022</span>
+                                        </div>
+                                        <ul class="mt-3 space-y-2 text-gray-700">
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Developed reservation application with point & redeem coupon functionality</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <svg class="w-4 h-4 mt-1 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                                <span>Gained experience in commercial app development practices</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Projects -->
+                        <section>
+                            <h2 class="section-title">Featured Projects</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Project 1 -->
+                                <div class="project-card">
+                                    <div class="p-5">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <h3 class="font-bold text-gray-800">APHome Mobile App</h3>
+                                            <span class="badge badge-success">In Development</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm mb-4">Flutter application connecting students with housing options, featuring real-time chat and admin dashboard.</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="skill-tag">Flutter</span>
+                                            <span class="skill-tag">Firebase</span>
+                                            <span class="skill-tag">Provider</span>
+                                            <span class="skill-tag">Hive</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Project 2 -->
+                                <div class="project-card">
+                                    <div class="p-5">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <h3 class="font-bold text-gray-800">Native E-Commerce App</h3>
+                                            <span class="badge">Android</span>
+                                        </div>
+                                        <p class="text-gray-600 text-sm mb-4">Native Android e-commerce application with product listings, cart functionality, and checkout process.</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="skill-tag">Java</span>
+                                            <span class="skill-tag">Android SDK</span>
+                                            <span class="skill-tag">SQLite</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-10">
+                        <!-- Skills -->
+                        <section>
+                            <h2 class="section-title">Technical Skills</h2>
+                            <div class="space-y-5">
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                        <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                        Mobile Development
+                                    </h3>
+                                    <div class="flex flex-wrap">
+                                        <span class="skill-tag">Flutter</span>
+                                        <span class="skill-tag">Dart</span>
+                                        <span class="skill-tag">Android</span>
+                                        <span class="skill-tag">Firebase</span>
+                                        <span class="skill-tag">Provider</span>
+                                        <span class="skill-tag">Hive</span>
+                                        <span class="skill-tag">AdMob</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                        <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                                        Web Development
+                                    </h3>
+                                    <div class="flex flex-wrap">
+                                        <span class="skill-tag">ASP.NET</span>
+                                        <span class="skill-tag">MySQL</span>
+                                        <span class="skill-tag">HTML/CSS</span>
+                                        <span class="skill-tag">JavaScript</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                        <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                                        Languages
+                                    </h3>
+                                    <div class="flex flex-wrap">
+                                        <span class="skill-tag">English (Business)</span>
+                                        <span class="skill-tag">Japanese (Native)</span>
+                                        <span class="skill-tag">Malay (Conversational)</span>
+                                        <span class="skill-tag">Spanish (Basic)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Education -->
+                        <section>
+                            <h2 class="section-title">Education</h2>
+                            <div class="space-y-5">
+                                <div>
+                                    <h3 class="font-bold text-gray-800">Bachelor of Information Technology</h3>
+                                    <p class="text-indigo-600">Asia Pacific University</p>
+                                    <p class="text-sm text-gray-500">Specialization: Mobile Development</p>
+                                    <p class="text-sm text-gray-500">Expected Graduation: Nov 2025</p>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-800">High School Diploma</h3>
+                                    <p class="text-indigo-600">Suwa Futaba High School</p>
+                                    <p class="text-sm text-gray-500">Japan | Graduated 2021</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Strengths -->
+                        <section>
+                            <h2 class="section-title">Key Strengths</h2>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Full App Lifecycle Experience</h4>
+                                        <p class="text-sm text-gray-600">From concept to deployment and monetization</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Problem Solver</h4>
+                                        <p class="text-sm text-gray-600">Strong debugging and optimization skills</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 mt-0.5 mr-2 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Team Leadership</h4>
+                                        <p class="text-sm text-gray-600">Experience guiding development teams</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Contact -->
+                        <section>
+                            <h2 class="section-title">Contact</h2>
+                            <div class="space-y-3">
+                                <a href="mailto:kotarokase@gmail.com" class="flex items-center text-gray-700 hover:text-indigo-600 transition-colors">
+                                    <svg class="w-5 h-5 mr-3 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                    kotarokase@gmail.com
+                                </a>
+                                <a href="https://github.com/KOTAROKASEKO" target="_blank" class="flex items-center text-gray-700 hover:text-indigo-600 transition-colors">
+                                    <svg class="w-5 h-5 mr-3 text-indigo-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+                                    github.com/KOTAROKASEKO
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.kotarokase.moneyTracker&pcampaignid=web_share" target="_blank" class="flex items-center text-gray-700 hover:text-indigo-600 transition-colors">
+                                    <svg class="w-5 h-5 mr-3 text-indigo-500" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"></path></svg>
+                                    Shiokurazu on Play Store
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+
+                <!-- Footer -->
+                <footer class="text-center p-6 bg-gray-50 border-t border-gray-100">
+                    <p class="text-sm text-gray-500">
+                        Kotaro Kase © <span id="currentYear"></span> | Mobile Developer
+                    </p>
+                </footer>
             </div>
-        </header>
-
-        <main class="p-8 md:p-12 space-y-10">
-            <section id="summary">
-                <h2 class="section-title">Summary</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Resilient and adaptable IT student with hands-on experience in mobile and web development, skilled in both NoSQL and SQL databases. Has experience in deploying a mobile application on playstore solely.
-                    Very passionate on acquiring new technology with deep passion and resilience.
-                </p>
-            </section>
-
-            <section id="objective">
-                <h2 class="section-title">Objective</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Dedicated IT student with hands-on experience in application development with NoSQL databases and web development with SQL databases, seeking an internship opportunity to apply technical skills and contribute to a dynamic team. Passionate about learning new technologies and solving real-world problems through innovative solutions. Currently working on the deployment of a mobile application to the university.
-                </p>
-            </section>
-
-            <section id="education">
-                <h2 class="section-title">Education</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="job-title text-lg">Bachelor of Information Technology (Specialization: Mobile Development)</h3>
-                        <p class="company-name">Asia Pacific University of Technology and Innovation (Malaysia)</p>
-                        <p class="date-location">Expected Graduation: November 2025</p>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">High School Diploma</h3>
-                        <p class="company-name">Suwa Futaba High School (Japan)</p>
-                        <p class="date-location">Graduated: March 2021</p>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">AFS Study Abroad Program</h3>
-                        <p class="company-name">Instituto Salesiano San José (Paraguay)</p>
-                        <p class="date-location">Attended: February 2020</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="technical-skills">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-2">Cross-Platform Mobile Application Development (Flutter):</h3>
-                    <ul class="list-disc text-gray-700 space-y-1">
-                        <li>Developed a mobile application connecting students seeking roommates or rooms, with an admin app.</li>
-                        <li>Utilized Firebase (NoSQL) for backend and Hive for local caching.</li>
-                        <li>Implemented real-time chat, notifications, post creation, search (Provider), and user authentication (Shared Preference).</li>
-                        <li>Currently deploying the application at Asia Pacific University (APU).</li>
-                    </ul>
-                </div>
-                <div class="mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-2">Java Software Development:</h3>
-                    <ul class="list-disc text-gray-700 space-y-1">
-                        <li>Created and managed a virtual customer management system for a web application.</li>
-                    </ul>
-                </div>
-                <div class="mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-2">Web Development (ASP.NET, MySQL):</h3>
-                    <ul class="list-disc text-gray-700 space-y-1">
-                        <li>Developed and maintained network intelligence systems using SQL databases for secure web applications.</li>
-                    </ul>
-                </div>
-                 <div class="mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-2">Data Analysis:</h3>
-                    <ul class="list-disc text-gray-700 space-y-1">
-                        <li>Experienced in analyzing large property datasets using R.</li>
-                    </ul>
-                </div>
-                <div class="mb-6">
-                    <h3 class="font-semibold text-gray-800 mb-2">Native Android Application Development:</h3>
-                    <ul class="list-disc text-gray-700 space-y-1">
-                        <li>Developed an e-commerce app using native Android framework.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-gray-800 mb-3">Languages:</h3>
-                    <span class="skill-tag">English: Business proficiency</span>
-                    <span class="skill-tag">Japanese: Native</span>
-                    <span class="skill-tag">Malay: Daily conversation</span>
-                    <span class="skill-tag">Spanish: Basic level</span>
-                </div>
-            </section>
-
-            <section id="experience">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="job-title text-lg">Internship</h3>
-                        <p class="company-name">Equinox Proptech sdn bhd</p>
-                        <ul class="list-disc text-gray-700 mt-1 space-y-1">
-                            <li>Independently developed a reservation application featuring point & redeem coupon functionality.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">App Deployment (Freelance/Personal Project)</h3>
-                        <p class="company-name">Shiokurazu - Finance Management Mobile App</p>
-                        <ul class="list-disc text-gray-700 mt-1 space-y-1">
-                            <li>Deployed finance management mobile application on Google Play Store.</li>
-                            <li>GitHub: <a href="https://github.com/KOTAROKASEKO/shiokurazu_proj.git" target="_blank" class="link-style">KOTAROKASEKO/shiokurazu_proj</a></li>
-                            <li>Play Store: <a href="https://play.google.com/store/apps/details?id=com.kotarokase.moneyTracker&pcampaignid=web_share" target="_blank" class="link-style">View on Google Play</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">English Tutor</h3>
-                        <p class="company-name">Freelance (2 Years)</p>
-                        <ul class="list-disc text-gray-700 mt-1 space-y-1">
-                            <li>Maintained a high satisfaction rating of 4.98/5 through personalized tutoring sessions.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">Shop Operator</h3>
-                        <p class="company-name">McDonald's, Japan</p>
-                        <ul class="list-disc text-gray-700 mt-1 space-y-1">
-                            <li>Provided back-end cooking support and front-line customer service.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">Operational Staff</h3>
-                        <p class="company-name">Asahi Corporation, Japan</p>
-                        <ul class="list-disc text-gray-700 mt-1 space-y-1">
-                            <li>Responsible for shop maintenance and customer service.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="strengths">
-                <h2 class="section-title">Personal Strengths</h2>
-                <ul class="list-disc text-gray-700 space-y-2">
-                    <li>
-                        <strong>Persistent and Result-Oriented:</strong> Driven by results, consistently working through challenges to achieve goals.
-                    </li>
-                    <li>
-                        <strong>Self-Motivated and Problem-Solving:</strong> Independently researches and develops solutions through trial and error, demonstrating strong problem-solving skills.
-                    </li>
-                    <li>
-                        <strong>Leadership:</strong> Promotes responsibility and accountability among team members, encouraging a focus on long-term solutions rather than quick fixes.
-                    </li>
-                </ul>
-            </section>
-
-            <section id="showcase">
-                <h2 class="section-title">Project Showcase</h2>
-                <div class="space-y-4">
-                    <div>
-                        <h3 class="job-title text-lg">APHome - Student Roommate Finder App</h3>
-                        <p class="text-gray-700">Mobile application connecting students seeking roommates or rooms.</p>
-                        <a href="#" target="_blank" class="link-style inline-block mt-1">View Project (Update Link)</a>
-                    </div>
-                    <div>
-                        <h3 class="job-title text-lg">Beauty Salon Reservation System</h3>
-                        <p class="text-gray-700">Web-based reservation system for beauty salons.</p>
-                        <a href="#" target="_blank" class="link-style inline-block mt-1">View Project (Update Link)</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="text-center p-6 bg-gray-50 border-t border-gray-200">
-            <p class="text-sm text-gray-500">
-                Kotaro Kase © <span id="currentYear"></span>. All rights reserved.
-            </p>
-        </footer>
+        </div>
     </div>
 
     <script>
-        // Script to set the current year in the footer
+        // Set current year
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
